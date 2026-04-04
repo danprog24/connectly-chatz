@@ -1,11 +1,10 @@
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
+import { api } from "../api/axios";
 
 export const useRegister = () => {
   return useMutation({
     mutationFn: async (data: { username: string; password: string }) => {
-      const response = await axios.post("/auth/register", data);
-      console.log("API URL:", import.meta.env.VITE_API_URL)
+      const response = await api.post("/auth/register", data);
       return response.data;
     },
   });

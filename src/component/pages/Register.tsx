@@ -44,10 +44,10 @@ const RegisterPage: React.FC = () => {
         <div className="mb-4">
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Email"
             className="w-full p-3 rounded-lg bg-gray-700 outline-none focus:ring-2 focus:ring-green-500"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
@@ -57,8 +57,8 @@ const RegisterPage: React.FC = () => {
             type="text"
             placeholder="Username"
             className="w-full p-3 rounded-lg bg-gray-700 outline-none focus:ring-2 focus:ring-green-500"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
 
