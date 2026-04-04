@@ -153,7 +153,7 @@ const ChatMessages: React.FC<Props> = ({ roomName }) => {
 
         const showDate = !prevMsg || !isSameDay(prevMsg.timestamp, msg.timestamp);
         const isFirstInGroup = !prevMsg || prevMsg.sender !== msg.sender;
-        const isLastInGroup = !nextMsg || nextMsg.sender !== msg.sender;
+        const _isLastInGroup = !nextMsg || nextMsg.sender !== msg.sender;
 
         return (
           <React.Fragment key={msg.id}>

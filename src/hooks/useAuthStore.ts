@@ -14,6 +14,7 @@ interface AuthState {
   avatar: string | null;
   userId: string | null;
   login: (tokenValue: string) => void;
+  setToken: (token: string) => void;
   logout: () => void;
   setAvatar: (url: string) => void;
 }
@@ -26,7 +27,19 @@ export const useAuthStore = create<AuthState>((set) => {
     token,
     username: decoded?.sub ?? null,
     userId: decoded?.userId ?? null,
-    avatar: null, // ✅ initialize to null
+    avatar: null, // initialize to null
+
+    setToken: (tokenValue: string) =>
+    set(() => {
+      localStorage.setItem("token", tokenValue);
+      const decoded = jwtDecode<TokenPayload>(tokenValue);
+      return {
+        token: tokenValue,
+        username: decoded.sub,
+        userId: decoded.userId,
+        avatar: null,
+      };
+    }),
 
     login: (tokenValue: string) =>
       set(() => {

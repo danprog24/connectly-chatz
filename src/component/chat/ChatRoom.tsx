@@ -1,4 +1,3 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import ChatLayout from "../layout/ChatLayout";
 import { useChatStore } from "../../store/chatStore";
@@ -15,7 +14,7 @@ const ChatPage: React.FC = () => {
     <div className="p-4 text-gray-400">Loading chat...</div>
   );
 
-  return <ChatLayout friendId={id} />;
+  return <ChatLayout />;
 };
 
 export default ChatPage;

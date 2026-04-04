@@ -11,19 +11,13 @@ export const useLogout = () => {
   return useMutation({
     mutationFn: logout,
     onSuccess: () => {
-      //  clear everything
       localStorage.removeItem("token");
-
-      // clear cache (important)
       queryClient.clear();
-
-      // redirect
       navigate("/login");
     },
     onError: () => {
-      // even if backend fails, force logout
       localStorage.removeItem("token");
-      auth.setToken(null);
+      auth.logout();
       navigate("/login");
     },
   });

@@ -24,7 +24,7 @@ const SuggestionsTab: React.FC<SuggestionsTabProps> = ({ activeTab }) => {
 
   
   const [pendingId, setPendingId] = useState<number | null>(null);
-  const [errorId, setErrorId] = useState<number | null>(null);
+  const [_errorId, setErrorId] = useState<number | null>(null);
 
   // Add this state alongside pendingId and errorId
   const [sentIds, setSentIds] = useState<number[]>([]);
