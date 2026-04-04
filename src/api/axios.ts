@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: "https://connectly-chat-production.up.railway.app",
   withCredentials: true,
 });
 
