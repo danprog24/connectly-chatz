@@ -4,12 +4,12 @@ export const login = async (data: {
     username: string;
     password: string;
   }) => {
-    const res = await api.post("/auth/login", data);
+    const res = await api.post("/api/auth/login", data);
     console.log("Login payload:", JSON.stringify(data));
     return res.data;
 };
 
 export const logout = async () => {
- const res = await api.post("/auth/logout", null);
+ const res = await api.post("/api/auth/logout", null);
  return res.data;
 };
