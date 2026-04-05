@@ -6,7 +6,7 @@ export const useOnlineStatus = () => {
   return useQuery<Record<string, boolean>>({
     queryKey: ["onlineStatus"],
     queryFn: async () => {
-      const res = await api.get("/users/online-status");
+      const res = await api.get("/api/users/online-status");
       return res.data;
     },
     refetchInterval: 30000,

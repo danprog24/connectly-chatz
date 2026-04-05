@@ -19,7 +19,7 @@ export const useSuggestions = (loggedInUserId: string) => {
     queryKey: ["suggestions", loggedInUserId, friends?.map((f) => f.id)],
     queryFn: async () => {
        console.log("3. queryFn firing...");
-      const res = await api.get<User[]>("/users/");
+      const res = await api.get<User[]>("/api/users/");
       console.log("4. raw response:", res.data);
       
       //  filter by username since loggedInUserId is actually a username
