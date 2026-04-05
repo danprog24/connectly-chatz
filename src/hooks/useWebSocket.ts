@@ -38,7 +38,7 @@ export const useWebSocket = ({ onMessageReceived }: UseWebSocketProps) => {
 
   const connect = useCallback(() => {
     const client = new Client({
-      webSocketFactory: () => new SockJS("http://localhost:8080/ws/websocket"),
+      webSocketFactory: () => new SockJS("https://connectly-chat-production.up.railway.app/ws"),
       reconnectDelay: 5000,
 
       connectHeaders: {
@@ -46,7 +46,6 @@ export const useWebSocket = ({ onMessageReceived }: UseWebSocketProps) => {
       },
 
       onConnect: () => {
-        console.log("WebSocket connected, publishing online status for:", username); // 👈
         client.publish({
           destination: "/app/user.online",
           body: JSON.stringify({}),
