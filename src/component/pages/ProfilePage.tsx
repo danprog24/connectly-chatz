@@ -27,7 +27,7 @@ const fetchProfile = async (username: string): Promise<UserProfile> => {
 const uploadAvatar = async (file: File): Promise<string> => {
   const formData = new FormData();
   formData.append("file", file);
-  const res = await api.post("/users/upload-avatar", formData, {
+  const res = await api.post("/api/users/upload-avatar", formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
   return res.data;
