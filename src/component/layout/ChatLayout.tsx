@@ -27,7 +27,7 @@ const ChatLayout: React.FC<Props> = ({ onBack }) => {
   if (!selectedFriend) return null;
 
   return (
-    <div className="flex flex-col h-full w-full min-w-0 overflow-hidden" style={{ background: "#0b141a" }}>
+    <div className="flex cover flex-col h-full w-full min-w-0 overflow-hidden" style={{ background: "#0b141a" }}>
 
       {/* Header */}
       <div className="flex items-center p-3 border-b border-gray-700 bg-[#202c33] shadow-sm flex-shrink-0">
