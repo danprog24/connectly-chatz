@@ -19,7 +19,7 @@ const App: React.FC = () => {
   useQuery({
     queryKey: ["profile", username],
     queryFn: async () => {
-      const res = await api.get(`/api/users/profile/${username}`);
+      const res = await api.get(`/users/profile/${username}`);
       if (res.data.avatar) setAvatar(res.data.avatar);
       return res.data;
     },
@@ -27,9 +27,6 @@ const App: React.FC = () => {
     staleTime: 1000 * 60 * 5,
     retry: false,
   });
-
-
-
   return (
     // WebSocketProvider wraps Routes, not inside it
     <WebSocketProvider >
