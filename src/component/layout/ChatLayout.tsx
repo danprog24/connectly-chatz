@@ -55,7 +55,7 @@ const ChatLayout: React.FC<Props> = ({ onBack }) => {
             className="w-10 h-10 rounded-full object-cover"
             alt={selectedFriend.username}
           />
-          <OnlineIndicator online={isOnline} size="sm" /> {/* ✅ live status */}
+          <OnlineIndicator online={isOnline} size="sm" /> {/* live status */}
         </div>
 
         {/* Friend info — clickable to view profile */}
@@ -64,7 +64,7 @@ const ChatLayout: React.FC<Props> = ({ onBack }) => {
           onClick={() => navigate(`/profile/${selectedFriend.username}`)}
         >
           <span className="font-semibold text-white truncate">{selectedFriend.username}</span>
-          {/* ✅ live online/offline text */}
+          {/* live online/offline text */}
           <span className={`text-xs ${isOnline ? "text-green-400" : "text-gray-400"}`}>
             {isOnline ? "Online" : "Offline"}
           </span>
@@ -72,12 +72,12 @@ const ChatLayout: React.FC<Props> = ({ onBack }) => {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-hidden flex flex-col min-h-0">
+      <div className="flex-1 overflow-y-hidden flex flex-col min-h-0 relative">
         <ChatMessages roomName={roomName} />
       </div>
 
       {/* Input */}
-      <div className="h-full w-full overflow-hidden min-h-0 flex-shrink-0">
+      <div className="sticky bottom-0 w-full">
         <MessageInput roomName={roomName} />
       </div>
     </div>
