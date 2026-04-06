@@ -17,7 +17,7 @@ const ChatLayout: React.FC<Props> = ({ onBack }) => {
   const username = useAuthStore((state) => state.username) ?? "";
   const navigate = useNavigate();
 
-  // ✅ live online status for selected friend
+  // live online status for selected friend
   const isOnline = useIsOnline(selectedFriend?.username ?? "");
 
   const roomName = username && selectedFriend?.username
@@ -77,7 +77,7 @@ const ChatLayout: React.FC<Props> = ({ onBack }) => {
       </div>
 
       {/* Input */}
-      <div className="flex-shrink-0">
+      <div className="h-full w-full overflow-hidden min-h-0 flex-shrink-0">
         <MessageInput roomName={roomName} />
       </div>
     </div>
