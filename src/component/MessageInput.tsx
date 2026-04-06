@@ -36,7 +36,7 @@ const MessageInput: React.FC<Props> = ({ roomName: _roomName }) => {
   };
 
   return (
-    <div className="flex items-end gap-2 p-3 border-t border-gray-700 bg-gray-900">
+    <div className="flex items-end align-bottom gap-2 p-3 border-t border-gray-700 bg-gray-900">
       <textarea
         value={message}
         onChange={(e) => setMessage(e.target.value)}
