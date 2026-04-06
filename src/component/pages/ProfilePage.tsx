@@ -51,9 +51,7 @@ const FILE_VALIDATION = {
   },
 };
 
-// ── Reusable components ───────────────────────────────────────────────────────
 
-// ✅ DRY: single info row component used for all profile fields
 const InfoRow: React.FC<{
   icon: LucideIcon;
   value: string;
@@ -68,7 +66,7 @@ const InfoRow: React.FC<{
   </div>
 );
 
-// ✅ DRY: loading state component
+
 const LoadingScreen: React.FC = () => (
   <div className="h-screen flex items-center justify-center bg-[#0b141a]">
     <div className="flex flex-col items-center gap-3">
@@ -78,7 +76,7 @@ const LoadingScreen: React.FC = () => (
   </div>
 );
 
-// ✅ DRY: error state component
+
 const ErrorScreen: React.FC<{ onBack: () => void }> = ({ onBack }) => (
   <div className="h-screen flex items-center justify-center bg-[#0b141a]">
     <div className="text-center">

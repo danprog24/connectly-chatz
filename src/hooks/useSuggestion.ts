@@ -11,21 +11,15 @@ export interface User {
 }
 
 export const useSuggestions = (loggedInUserId: string) => {
-  console.log("1. useSuggestions called with:", loggedInUserId);
-  console.log("2. enabled:", !!loggedInUserId);
   const { data: friends } = useFriend(loggedInUserId);
 
   return useQuery<User[]>({
     queryKey: ["suggestions", loggedInUserId, friends?.map((f) => f.id)],
     queryFn: async () => {
-       console.log("3. queryFn firing...");
-      const res = await api.get<User[]>("/api/users/");
-      console.log("4. raw response:", res.data);
+      const res = await api.get<User[]>("/users/");
       
       //  filter by username since loggedInUserId is actually a username
       let suggestions = res.data.filter((user) => user.username !== loggedInUserId);
-      console.log("Filtered suggestions:", suggestions);
-
       
       if (friends) {
         suggestions = suggestions.filter(

@@ -3,8 +3,7 @@ import { api } from "../api/axios";
 import type { Friend } from "../types/chat";
 
 export const getFriendById = async (userId: string): Promise<Friend[]> => {
-  console.log("getFriendById called with:", userId); // 👈 add this
-  const res = await api.get(`/api/users/${userId}/friends`);
+  const res = await api.get(`/users/${userId}/friends`);
   return res.data;
 };
 

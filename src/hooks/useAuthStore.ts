@@ -27,7 +27,7 @@ export const useAuthStore = create<AuthState>((set) => {
     token,
     username: decoded?.sub ?? null,
     userId: decoded?.userId ?? null,
-    avatar: null, // initialize to null
+    avatar: null,
 
     setToken: (tokenValue: string) =>
     set(() => {
@@ -49,7 +49,7 @@ export const useAuthStore = create<AuthState>((set) => {
           token: tokenValue,
           username: decoded.sub,
           userId: decoded.userId,
-          avatar: null, // ✅ reset avatar on login, App.tsx will fetch it
+          avatar: null, // reset avatar on login, App.tsx will fetch it
         };
       }),
 

@@ -5,7 +5,6 @@ export const login = async (data: {
     password: string;
   }) => {
     const res = await api.post("/api/auth/login", data);
-    console.log("Login payload:", JSON.stringify(data));
     return res.data;
 };
 

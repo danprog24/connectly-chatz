@@ -11,10 +11,10 @@ export const useLogin = () => {
     mutationFn: login,
 
     onSuccess: (data) => {
-      // ✅ save token in Zustand + localStorage
+      // save token in Zustand + localStorage
       loginStore(data.token);
 
-      // ✅ redirect (App will also react automatically)
+      // redirect (App will also react automatically)
       navigate("/");
     },
 
