@@ -18,7 +18,7 @@ export const useLogout = () => {
     onError: () => {
       localStorage.removeItem("token");
       auth.logout();
-      navigate("/api/auth/login");
+      navigate("/auth/login");
     },
   });
 };

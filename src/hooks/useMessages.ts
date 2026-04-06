@@ -22,7 +22,7 @@ export const useMessage = (friendId: string) => {
     return useQuery<Message[], Error>({
       queryKey: ["messages", roomName],
       queryFn: () => getMessages(roomName),
-      enabled: !!roomName && roomName !== "-", // ✅ guard
+      enabled: !!roomName && roomName !== "-",
       refetchInterval: 3000,
       placeholderData: (previousData) => previousData,
       retry: 2,
@@ -33,18 +33,17 @@ export const useMessage = (friendId: string) => {
 export const useSendMessage = (roomName: string) => {
   const queryClient = useQueryClient();
 
-  return useMutation<Message, Error, { receiverId: string; content: string }>({ // ✅ string not number
+  return useMutation<Message, Error, { receiverId: string; content: string }>({
     mutationFn: sendMessage,
 
     onMutate: async (variables) => {
-      // ✅ query key matches useMessages key (string)
       await queryClient.cancelQueries({
         queryKey: ["messages", variables.receiverId],
       });
 
       const previousMessages = queryClient.getQueryData<Message[]>([
         "messages",
-        variables.receiverId, // ✅ string
+        variables.receiverId,
       ]);
 
     queryClient.setQueryData<Message[]>(
@@ -54,14 +53,14 @@ export const useSendMessage = (roomName: string) => {
         {
           id: `temp-${Date.now()}`,
           content: variables.content,
-          sender: {                                          // ✅ match Message type
+          sender: {
             id: 0,
             username: useAuthStore.getState().username ?? "",
             avatar: "",
           },
           timestamp: new Date().toISOString(),
           status: "sending",
-        } as unknown as Message,                            // ✅ cast through unknown
+        } as unknown as Message,
       ]
     );
       return { previousMessages };
@@ -79,7 +78,7 @@ export const useSendMessage = (roomName: string) => {
 
     onSettled: (_data, _err, variables) => {
       queryClient.invalidateQueries({
-        queryKey: ["messages", variables.receiverId], // ✅ string
+        queryKey: ["messages", variables.receiverId],
       });
     },
   });
