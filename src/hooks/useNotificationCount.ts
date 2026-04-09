@@ -30,6 +30,7 @@ export const usePendingRequestsCount = () => {
 export const useUnreadMessagesCount = () => {
   const username = useAuthStore((state) => state.username);
   const { data: friends } = useFriend(username ?? "");
+  console.log("Friends in useUnreadMessagesCount:", friends); // Debug log
 
   const { data } = useQuery<number>({
     queryKey: ["unreadMessages", username],
